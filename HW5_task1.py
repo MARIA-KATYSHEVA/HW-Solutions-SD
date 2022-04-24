@@ -5,7 +5,7 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 
 
-class CreationalPatternName:
+class Builder:
     def __init__(self, X_train: np.ndarray, y_train: np.ndarray):
         self.X_train = X_train
         self.y_train = y_train
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     X, y = shuffle(X,y, random_state=42)
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
-    pattern_item = CreationalPatternName(X_train, y_train)
+    pattern_item = Builder(X_train, y_train)
     for df_share in range(10, 101, 10):
         curr_X_train, curr_y_train = pattern_item.get_subsample(df_share)
 
